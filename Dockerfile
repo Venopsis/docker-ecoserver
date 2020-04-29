@@ -7,7 +7,7 @@ FROM mono:5.14
 
 WORKDIR /opt/eco
 
-COPY ./entrypoint.sh .
+COPY ./entrypoint.sh /
 
 # APT update, install tmux install mono specific version + cleanup
 RUN apt update && \
@@ -26,4 +26,4 @@ EXPOSE 3001
 VOLUME [ "/opt/eco" ]
 
 # Using script to ensure no arguments car be sent to the container when starting.
-ENTRYPOINT [ "entrypoint.sh" ]
+ENTRYPOINT [ "/entrypoint.sh" ]
