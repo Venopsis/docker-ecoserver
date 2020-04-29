@@ -7,7 +7,7 @@ FROM mono:5.14
 
 WORKDIR /opt/eco
 
-COPY ./entrypoint.sh /
+COPY --chmod:0755 entrypoint.sh /
 
 # APT update, install tmux install mono specific version + cleanup
 RUN apt update && \
@@ -15,8 +15,7 @@ RUN apt update && \
     curl -O https://s3-us-west-2.amazonaws.com/eco-releases/EcoServer_v0.8.3.3-beta.zip && \
     unzip EcoServer_v0.8.3.3-beta.zip && \
     rm -f EcoServer_v0.8.3.3-beta.zip && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    chmod +x /entrypoint.sh
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Game port
 EXPOSE 3000/udp
