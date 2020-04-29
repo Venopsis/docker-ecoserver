@@ -15,7 +15,7 @@ RUN apt update && \
     curl -O https://s3-us-west-2.amazonaws.com/eco-releases/EcoServer_v0.8.3.3-beta.zip && \
     unzip EcoServer_v0.8.3.3-beta.zip && \
     rm -f EcoServer_v0.8.3.3-beta.zip && \
-    apt remove --purge --autoremove && \
+    apt purge --autoremove && \
     apt clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/* && \
