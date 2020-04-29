@@ -10,15 +10,15 @@ WORKDIR /opt/eco
 COPY ./entrypoint.sh .
 
 # APT update, install tmux install mono specific version + cleanup
-RUN apt update && \
-    apt install -y tmux unzip curl vim && \
-    curl -O https://s3-us-west-2.amazonaws.com/eco-releases/EcoServer_v0.8.3.3-beta.zip && \
-    unzip EcoServer_v0.8.3.3-beta.zip && \
-    rm -f EcoServer_v0.8.3.3-beta.zip && \
-    apt clean -y && \
-    rm -rf /var/lib/apt/lists/* && \
-    rm -rf /tmp/* && \
-    rm -rf /var/tmp/*
+RUN apt update 
+RUN apt install -y tmux unzip curl vim 
+RUN curl -O https://s3-us-west-2.amazonaws.com/eco-releases/EcoServer_v0.8.3.3-beta.zip 
+RUN unzip EcoServer_v0.8.3.3-beta.zip 
+RUN rm -f EcoServer_v0.8.3.3-beta.zip 
+RUN apt clean -y 
+RUN rm -rf /var/lib/apt/lists/* 
+RUN rm -rf /tmp/* 
+RUN rm -rf /var/tmp/*
 
 # Game port
 EXPOSE 3000/udp
