@@ -7,7 +7,7 @@ FROM mono:5.14
 
 WORKDIR /opt/eco
 
-COPY --chmod:0755 entrypoint.sh /
+COPY --chmod=0755 entrypoint.sh /
 
 # APT update, install tmux install mono specific version + cleanup
 RUN apt update && \
