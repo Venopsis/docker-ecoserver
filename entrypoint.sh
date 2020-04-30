@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#
 if [ "$#" -eq "Init" ]
     then
         # Does nothing to let user manage config file before first run.
