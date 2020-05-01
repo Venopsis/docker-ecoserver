@@ -7,6 +7,10 @@ Second run:
 sudo docker run --name ecoserver-dev_01 -v ecoserver-dev_data:/opt/eco -d venopsis/ecoserver-dev:latest Start
 This will run the container in detached mode (background) with the ecoserver starting and loading config files from the attached volume.
 
+If you want to change the defaults port use the following command:
+sudo docker run --name ecoserver-dev_01 -e "GAME_PORT=4000/udp" -e "WEB_PORT=4001" -v ecoserver-dev_data:/opt/eco -d venopsis/ecoserver-dev:latest Start
+WARNING : do not forget to change in configuration file in the initial run!!
+
 Manage the server:
 DO NOT USE ATTACH COMMAND OR YOU'LL KILL THE CONTAINER ON EXIT WITH CTRL^D
 The eco server will run in tmux session. Then you can connect to the container as following:
@@ -14,6 +18,20 @@ sudo docker exec -it ecoserver-dev_01 bash
 Type the following command to access ecoserver tmux instance and see log.
 root@containerName:/opt/eco# tmux at -t ecoserver
 If you want to edit files, etc simply continue in the bash command that showed up.
+
+STOP the server:
+Connect as you want to manager the server + load tmux session
+Then type exit in the CLI
+Then disconnect from the container and stop it from you web interface or CLI.
+
+Copy data from the container:
+sudo docker cp ecoserver-dev_01:containerpath localpath 
+example -> sudo docker cp ecoserver-dev_01:/opt/eco/Configs .
+This will copy the folder "Configs" into the actual folder on your host.
+
+Copy data to the container:
+sudo docker cp localpath ecoserver-dev_01:containerpath 
+example -> sudo docker cp ecoserver-dev_01:/opt/eco/Configs .
 
 Leave the server:
 From bash : ctrl^d

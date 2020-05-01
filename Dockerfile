@@ -4,6 +4,9 @@ FROM mono:5.14
 #ENV ECO_VERSION=8.3.3
 #ENV ECO_FILE_HOST=https://s3-us-west-2.amazonaws.com/eco-releases
 #ENV ECO_ZIP=EcoServer_v0.${ECO_VERSION}-beta.zip
+# Port via environment variable
+ENV GAME_PORT 3000/udp
+ENV WEB_PORT 3001
 
 WORKDIR /opt/eco
 
@@ -18,12 +21,14 @@ RUN apt update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Game port
-EXPOSE 3000/udp
+EXPOSE ${GAME_PORT}
 # Web port
-EXPOSE 3001
+EXPOSE ${WEB_PORT}
 
 # Ensure data are saved externally
 VOLUME [ "/opt/eco" ]
 
 # Using script to ensure no arguments car be sent to the container when starting.
 ENTRYPOINT [ "/entrypoint.sh" ]
+# Default is Init option
+CMD [ "Init" ]
