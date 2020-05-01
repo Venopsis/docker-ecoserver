@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "--------"
 echo "Running the container" $(hostname)
-echo "Time info :" $date
+echo "Time info :" $(date)
 echo "--------"
 if [ "$1" = "Init" ]
     then
@@ -20,17 +20,3 @@ else
     echo $(date) "- !! ERROR !! This container does not accept other arguments than Init and Start"
     exit 1
 fi
-
-# Define stop procedure
-stopping() {
-    echo $(date) "- The server has been requested to stop and will proceed"
-    echo $(date) "- Stopping eco instance"
-    # Send command exit to eco inside the tmux session
-    tmux send-keys -t ecoserver "exit" ENTER
-}
-
-# Trap SIGTERM
-trap 'stopping' SIGTERM
-
-# Wait
-wait $!

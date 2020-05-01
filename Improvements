@@ -1,12 +1,8 @@
 Server/container
-- Get if else working in entrypoint to be able to use Init command, no args and reject all other cases (+display error message)
-- Check how to quit properly a running eco server (instaed of simply stop/kill the container)
-- Check if possible to run specific leaving command (stopping properly the eco server instance) on stop/kill command for container.
 
 Docker/volumes
 - Backup volume to prevent data loss.
 https://stackoverflow.com/questions/26331651/how-can-i-backup-a-docker-container-with-its-data-volumes
-- How to import/export data from the volume.
 
 CI/CD
 - Adjust docker hub integration
