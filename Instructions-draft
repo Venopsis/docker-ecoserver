@@ -4,7 +4,7 @@ Get bash in foreground.
 When config done, just press ctrl^d to leave container -> will be stopped and removed but not the volume (keep config)
 
 Second run:
-sudo docker run --name ecoserver-dev_01 -v ecoserver-dev_data:/opt/eco -d venopsis/ecoserver-dev:latest
+sudo docker run --name ecoserver-dev_01 -v ecoserver-dev_data:/opt/eco -d venopsis/ecoserver-dev:latest Start
 This will run the container in detached mode (background) with the ecoserver starting and loading config files from the attached volume.
 
 Manage the server:

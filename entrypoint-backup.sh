@@ -1,5 +1,4 @@
 #!/bin/bash
-#
 if [ "$1" -eq "Init" ]
     then
         # Run bash to let user edit configuration before first run.
@@ -12,5 +11,3 @@ else
     echo "This container does not accept arguments"
     exit 1
 fi
-
-exec "$@"
