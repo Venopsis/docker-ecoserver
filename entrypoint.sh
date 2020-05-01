@@ -12,5 +12,3 @@ else
     echo "This container does not accept arguments"
     exit 1
 fi
-
-exec "$@"
