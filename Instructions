@@ -2,6 +2,10 @@ Preparation:
 Create volume to store the server data with the following command:
 sudo docker volume create ecoserver-dev_data
 
+By default time zone for the container is set to Europe/Brussels.
+If you want to change, include the option below
+-e "TZ=yourValue"
+
 First run:
 sudo docker run --rm --name ecoserver-dev_01 -v ecoserver-dev_data:/opt/eco -it venopsis/ecoserver-dev:latest Init
 Get bash in foreground.

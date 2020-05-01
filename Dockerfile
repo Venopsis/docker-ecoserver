@@ -1,19 +1,19 @@
 FROM mono:5.14
 
-# Define ECO Version
-#ENV ECO_VERSION=8.3.3
-#ENV ECO_FILE_HOST=https://s3-us-west-2.amazonaws.com/eco-releases
-#ENV ECO_ZIP=EcoServer_v0.${ECO_VERSION}-beta.zip
-# Port via environment variable
+# Set exposed port for container
 ENV GAME_PORT 3000/udp
 ENV WEB_PORT 3001
+
+# Set time zone
+ENV TZ Europe/Brussels
 
 WORKDIR /opt/eco
 
 COPY entrypoint.sh /
 
 # APT update, install tmux install mono specific version + cleanup
-RUN apt update && \
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
+    apt update && \
     apt install -y tmux unzip curl vim && \
     curl -O https://s3-us-west-2.amazonaws.com/eco-releases/EcoServer_v0.8.3.3-beta.zip && \
     unzip EcoServer_v0.8.3.3-beta.zip && \

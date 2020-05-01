@@ -1,21 +1,36 @@
 #!/bin/bash
-#
+echo "--------"
+echo "Running the container" $(hostname)
+echo "Time info :" $date
+echo "--------"
 if [ "$1" = "Init" ]
     then
         # Run bash to let user edit configuration before first run.
+        echo $(date) "- Init mode initiated"
         bash
 elif [ "$1" = "Start" ]
     then
-        echo "Go into option Start"
+        echo $(date) "- Tmux session for eco : starting"
         # Start in Tmux session for late management
-        echo "Run tmux command"
         tmux new-session -d -s "ecoserver" "mono EcoServer.exe -nogui"
-        echo "Leaving tmux"
-        echo "execute tail command"
+        echo $(date) "- Tmux session for eco : running"
+        # Command below keep container running after tmux command done
         tail -f /dev/null
-        echo "leaving tail command"
 else
-    echo "This container does not accept arguments"
+    echo $(date) "- !! ERROR !! This container does not accept other arguments than Init and Start"
     exit 1
 fi
-echo "Out of else if loop"
+
+# Define stop procedure
+stopping() {
+    echo $(date) "- The server has been requested to stop and will proceed"
+    echo $(date) "- Stopping eco instance"
+    # Send command exit to eco inside the tmux session
+    tmux send-keys -t ecoserver "exit" ENTER
+}
+
+# Trap SIGTERM
+trap 'stopping' SIGTERM
+
+# Wait
+wait $!
