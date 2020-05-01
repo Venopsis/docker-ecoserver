@@ -1,14 +1,18 @@
+Preparation:
+Create volume to store the server data with the following command:
+sudo docker volume create ecoserver-dev_data
+
 First run:
 sudo docker run --rm --name ecoserver-dev_01 -v ecoserver-dev_data:/opt/eco -it venopsis/ecoserver-dev:latest Init
 Get bash in foreground.
 When config done, just press ctrl^d to leave container -> will be stopped and removed but not the volume (keep config)
 
 Second run:
-sudo docker run --name ecoserver-dev_01 -v ecoserver-dev_data:/opt/eco -d venopsis/ecoserver-dev:latest Start
+sudo docker run --name ecoserver-dev_01 -v ecoserver-dev_data:/opt/eco -p 3000:3000/udp -p 3001:3001 -d venopsis/ecoserver-dev:latest Start
 This will run the container in detached mode (background) with the ecoserver starting and loading config files from the attached volume.
 
 If you want to change the defaults port use the following command:
-sudo docker run --name ecoserver-dev_01 -e "GAME_PORT=4000/udp" -e "WEB_PORT=4001" -v ecoserver-dev_data:/opt/eco -d venopsis/ecoserver-dev:latest Start
+sudo docker run --name ecoserver-dev_01 -v ecoserver-dev_data:/opt/eco -e "GAME_PORT=4000/udp" -e "WEB_PORT=4001" -p 4000:4000/udp -p 4001:4001 -d venopsis/ecoserver-dev:latest Start
 WARNING : do not forget to change in configuration file in the initial run!!
 
 Manage the server:
