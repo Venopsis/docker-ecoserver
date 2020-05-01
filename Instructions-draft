@@ -1,0 +1,19 @@
+First run:
+sudo docker run --rm --name ecoserver-dev_01 -v ecoserver-dev_data:/opt/eco -it venopsis/ecoserver-dev:latest Init
+Get bash in foreground.
+When config done, just press ctrl^d to leave container -> will be stopped and removed but not the volume (keep config)
+
+Second run:
+sudo docker run --name ecoserver-dev_01 -v ecoserver-dev_data:/opt/eco -d venopsis/ecoserver-dev:latest
+This will run the container in detached mode (background) with the ecoserver starting and loading config files from the attached volume.
+
+Manage the server:
+The eco server will run in tmux session. Then you can connect to the container as following:
+sudo docker exec -it ecoserver-dev_01 bash
+Type the following command to access ecoserver tmux instance and see log.
+root@containerName:/opt/eco# tmux at -t ecoserver
+If you want to edit files, etc simply continue in the bash command that showed up.
+
+Leave the server:
+From bash : ctrl^d
+From tmux : ctrl^b + d

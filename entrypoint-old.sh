@@ -2,7 +2,8 @@
 #
 if [ "$#" -eq "Init" ]
     then
-        # Does nothing to let user manage config file before first run.
+        # Run bash to let user edit configuration before first run.
+        bash
 elif [ "$#" -eq "0" ]
     then
         # Start in Tmux session for late management

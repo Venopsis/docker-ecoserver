@@ -1,3 +1,3 @@
 #!/bin/bash
 
-bash
+tmux new-session -d -s "ecoserver" mono EcoServer.exe -nogui
