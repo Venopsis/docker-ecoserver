@@ -1,10 +1,10 @@
 #!/bin/bash
 #
-if [ "$#" -eq "Init" ]
+if [ "$1" -eq "Init" ]
     then
         # Run bash to let user edit configuration before first run.
         bash
-elif [ "$#" -eq "0" ]
+elif [ "$1" -eq "0" ]
     then
         # Start in Tmux session for late management
         tmux new-session -d -s "ecoserver" "mono EcoServer.exe -nogui"
