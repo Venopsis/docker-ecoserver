@@ -8,3 +8,9 @@ CI/CD
 - Adjust docker hub integration
 - Check Semaphoreci
 - restart full repo and docker repo with running release as main + tag 8.3.3 + copy commit to dev branch
+
+Dockerfile
+- Add author, maintainer info, etc
+
+Documentation/readme
+- Add disclaimer about docker and can open issue but no garantie to be able to solve them
