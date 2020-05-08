@@ -1,6 +1,7 @@
 Server/container
 - Check web file manager : found Cloud Commander
   https://www.tecmint.com/cloud-commander-browser-based-file-manager-for-linux/
+- Cloud commander HTTPS for secure connection
 
 ECO
 - Check mods (DLL) support with mono
