@@ -28,6 +28,8 @@ COPY entrypoint.sh /
 EXPOSE ${GAME_PORT}
 # Web port
 EXPOSE ${WEB_PORT}
+# Cloud Commande port
+EXPOSE 8000
 
 # Ensure data are saved externally
 VOLUME [ "/opt/eco" ]
