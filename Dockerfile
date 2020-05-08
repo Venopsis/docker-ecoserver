@@ -11,7 +11,7 @@ WORKDIR /opt/eco
 
 # APT update + install tmux, unzip, curl, vim, nodejs + install eco specific version + cleanup
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
-    curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash - && \
+    curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
     apt update && \
     apt install -y tmux unzip curl vim nodejs && \
     curl -O https://s3-us-west-2.amazonaws.com/eco-releases/EcoServer_v0.8.3.3-beta.zip && \
