@@ -1,8 +1,13 @@
 Server/container
+- Check web file manager : found Cloud Commander
+  https://www.tecmint.com/cloud-commander-browser-based-file-manager-for-linux/
+
+ECO
+- Check mods (DLL) support with mono
 
 Docker/volumes
 - Backup volume to prevent data loss.
-https://stackoverflow.com/questions/26331651/how-can-i-backup-a-docker-container-with-its-data-volumes
+  https://stackoverflow.com/questions/26331651/how-can-i-backup-a-docker-container-with-its-data-volumes
 
 CI/CD
 - Adjust docker hub integration
