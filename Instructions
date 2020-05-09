@@ -40,7 +40,7 @@ This will copy the folder "Configs" into the actual folder on your host.
 
 Copy data to the container:
 sudo docker cp localpath ecoserver-dev_01:containerpath 
-example -> sudo docker cp ecoserver-dev_01:/opt/eco/Configs .
+example -> sudo docker cp . ecoserver-dev_01:/opt/eco/Configs
 
 Leave the server:
 From bash : ctrl^d
