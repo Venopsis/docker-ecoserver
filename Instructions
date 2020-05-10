@@ -12,7 +12,7 @@ Get bash in foreground.
 When config done, just press ctrl^d to leave container -> will be stopped and removed but not the volume (keep config)
 
 Second run:
-sudo docker run --name ecoserver-dev_01 -v ecoserver-dev_data:/opt/eco -p 3000:3000/udp -p 3001:3001 -p 8000:8000 -d venopsis/ecoserver-dev:latest Start
+sudo docker run --name ecoserver-dev_01 -v ecoserver-dev_data:/opt/eco -p 3000:3000/udp -p 3001:3001 -p 8000:8000 --restart unless-stopped -d venopsis/ecoserver-dev:latest Start
 This will run the container in detached mode (background) with the ecoserver starting and loading config files from the attached volume.
 Port 8000 is for Cloud Commander (web file manager).
 

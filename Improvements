@@ -1,7 +1,7 @@
 Server/container
 - Check web file manager : found Cloud Commander
   https://www.tecmint.com/cloud-commander-browser-based-file-manager-for-linux/
-- Cloud commander HTTPS for secure connection
+- Cloud commander HTTPS for secure connection + authentication
 
 ECO
 - Check mods (DLL) support with mono
@@ -9,6 +9,15 @@ ECO
 Docker/volumes
 - Backup volume to prevent data loss.
   https://stackoverflow.com/questions/26331651/how-can-i-backup-a-docker-container-with-its-data-volumes
+  Use PZ script in cronjob
+  - Stop container
+  - Create eco-backup folder in home dir if not existing
+  - Create folder based on day date and time
+  - Copy files from container to this folder
+  - Create tar
+  - Remove the folder with day date
+  - Clean old backup (keep last 7 days only)
+  - Start container
 
 CI/CD
 - Adjust docker hub integration
