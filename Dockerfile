@@ -9,16 +9,17 @@ ENV TZ Europe/Brussels
 
 WORKDIR /opt/eco
 
-COPY entrypoint.sh /
-
 # APT update, install tmux install mono specific version + cleanup
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
     apt update && \
     apt install -y tmux unzip curl vim && \
-    curl -O https://s3-us-west-2.amazonaws.com/eco-releases/EcoServer_v0.8.3.3-beta.zip && \
-    unzip EcoServer_v0.8.3.3-beta.zip && \
-    rm -f EcoServer_v0.8.3.3-beta.zip && \
+    curl -O https://s3-us-west-2.amazonaws.com/eco-releases/EcoServerLinux_v0.9.0.4-beta.zip && \
+    unzip EcoServerLinux_v0.9.0.4-beta.zip && \
+    rm -f EcoServerLinux_v0.9.0.4-beta.zip && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# BP : Copy files after RUN commands
+COPY entrypoint.sh /
 
 # Game port
 EXPOSE ${GAME_PORT}

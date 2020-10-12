@@ -12,7 +12,7 @@ elif [ "$1" = "Start" ]
     then
         echo $(date) "- Tmux session for eco : starting"
         # Start in Tmux session for late management
-        tmux new-session -d -s "ecoserver" "mono EcoServer.exe -nogui"
+        tmux new-session -d -s "ecoserver" "EcoServer"
         echo $(date) "- Tmux session for eco : running"
         # Command below keep container running after tmux command done
         tail -f /dev/null
