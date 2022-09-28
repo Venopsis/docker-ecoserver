@@ -10,4 +10,4 @@ Actually the project is still in pre-alpha state.
 
 ------------
 
-Based on a gist from stevepraski: https://gist.github.com/stevepraski/3b7d468d8e71b393b1640a6e329f54c4
+Based on a gist from stevepraski: [link](https://gist.github.com/stevepraski/3b7d468d8e71b393b1640a6e329f54c4)
